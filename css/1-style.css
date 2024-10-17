@@ -1,0 +1,440 @@
+/*Custom styles for Super App*/
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-Thin.ttf') format('truetype');
+   font-weight: 100;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-ExtraLight.ttf') format('truetype');
+   font-weight: 200;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-Light.ttf') format('truetype');
+   font-weight: 300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+   font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+   font-weight: 500;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+   font-weight: 600;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
+   font-weight: 700;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-ExtraBold.ttf') format('truetype');
+   font-weight: 800;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat-Black.ttf') format('truetype');
+   font-weight: 900;
+   font-style: normal;
+}
+
+:root {
+   --super-app-primary-red: #C40D42;
+   --super-app-grey: #757575;
+   --super-app-body-text: #333333;
+   --super-app-hover-btn-back: rgba(255, 255, 255, 0.08);
+   --super-app-disabled-btn-back: rgba(31, 31, 31, 0.12);
+   --super-app-disabled-text: rgba(0, 0, 0, 0.38);
+   --super-app-btn-text: #FFF;
+   --super-app-error-text: #E5362B;
+   --super-app-success-text: #4CAF50;
+}
+
+html {
+   font-family: 'Montserrat', sans-serif !important;
+   font-style: normal !important;
+   font-weight: normal;
+}
+
+.sub-text-wrapper {
+   color: var(--super-app-body-text) !important;
+   font-style: normal !important;
+   font-weight: 600 !important;
+   font-size: 20px !important;
+   line-height: 24px !important;
+   text-align: center;
+   margin-bottom: 0;
+   word-break: break-word;
+}
+
+.tnc-container {
+   color: var(--super-app-body-text);
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 20px;
+   display: block;
+   padding: 0 7px;
+   margin: auto auto 24px;
+   width: 317px;
+   min-height: 41px;
+}
+
+.tnc-container a {
+   color: #4294FF;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 20px;
+   text-decoration: none;
+}
+
+.terms-checkbox {
+   height: 24px;
+   transform: scale(1.1);
+   accent-color: var(--super-app-primary-red);
+}
+
+.terms-checkbox:hover {
+   accent-color: var(--super-app-primary-red);
+}
+
+.terms-label {
+   margin-left: 10px;
+   text-align: left;
+}
+
+.terms-wrapper {
+   display: flex;
+   justify-content: left;
+   align-items: start;
+}
+
+.resend-otp {
+   font-weight: 500 !important;
+   font-size: 12px !important;
+   line-height: 15px !important;
+}
+
+.top-header {
+   display: none;
+}
+
+.middle-header {
+   display: none;
+}
+
+.bck-btn {
+   fill: #000000;
+}
+
+.btn-container {
+   text-align: center;
+   margin: 0 0 1.5rem !important;
+}
+
+.btn-submit {
+   width: 317px;
+   height: 48px;
+   min-height: 48px;
+   border-radius: 8px;
+   background: var(--super-app-primary-red);
+   color: var(--super-app-btn-text);
+   font-weight: 500 !important;
+   font-size: 18px !important;
+   line-height: 20px !important;
+   transition: all 0.3s;
+}
+
+.btn-submit:hover {
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+   opacity: 0.92;
+   color: var(--super-app-btn-text);
+}
+
+.btn-submit:focus,
+.btn-submit:active {
+   opacity: 0.88;
+}
+
+.btn-submit:disabled {
+   background: var(--super-app-disabled-btn-back);
+   color: var(--super-app-disabled-text);
+}
+
+.btn-submit:hover:disabled {
+   box-shadow: none;
+   opacity: 1;
+}
+
+.btn-cancel {
+   width: 100% !important;
+   border-radius: 8px;
+   border: 2px solid var(--super-app-primary-red);
+   color: var(--super-app-primary-red);
+}
+
+.btn-cancel:hover {
+   opacity: 1;
+   color: var(--super-app-primary-red);
+}
+
+/* General input styles */
+input, select, textarea, button {
+   font-family: 'Montserrat', sans-serif !important;
+}
+
+input {
+   caret-color: transparent;
+}
+
+input::placeholder,
+input[type='text']::placeholder,
+input[type='tel']::placeholder{
+   color: var(--super-app-body-text) !important;
+   font-weight: 500 !important;
+   font-size: 12px !important;
+   line-height: 15px !important;
+}
+
+.float-input-container {
+   width: 328px;
+}
+
+input:not([type='checkbox']), input:not([type='checkbox']):focus {
+   border: 1px solid #C4C4C4;
+   border-radius: 8px;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 20px;
+   height: 56px;
+   width: 328px;
+}
+
+input:focus {
+   border-color: #C4C4C4 !important;
+}
+
+.txt-form-label {
+   color: var(--super-app-grey);
+   font-weight: 500 !important;
+   font-size: 16px !important;
+   line-height: 130% !important;
+}
+
+.form-fields input[type='text']:focus ~ .txt-form-label,
+.form-fields input[type='text'].is-valid ~ .txt-form-label,
+.form-fields input[type='tel']:focus ~ .txt-form-label,
+.form-fields input[type='tel'].is-valid ~ .txt-form-label,
+.form-fields input[type='password']:focus ~ .txt-form-label,
+.form-fields input[type='password'].is-valid ~ .txt-form-label {
+   transform: translateY(-180%) scale(0.75);
+   background: #fff;
+   color: var(--super-app-grey);
+}
+
+label:focus, .txt-form-label {
+   border-color: var(--super-app-grey) !important;
+}
+
+input:not(:placeholder-shown) {
+   border-color: var(--super-app-grey);
+}
+
+/* Override input styles for OTP boxes*/
+.otp-container {
+   gap: 8px;
+   width: 328px;
+   height: 56px;
+}
+
+.form-fields > li {
+   margin-bottom: 0;
+   padding-top: 0 !important;
+}
+
+.form-fields > li:last-child {
+   margin-bottom: 0;
+}
+
+.otp-box {
+   width: 48px !important;
+   height: 56px !important;
+   background-color: unset !important;
+   border: 1px solid var(--super-app-primary-red) !important;
+   color: var(--super-app-body-text) !important;
+   font-size: 24px !important;
+   font-weight: 600 !important;
+   line-height: 29px !important;
+}
+
+.otp-box:focus, .otp-box:focus-visible {
+   border-color: var(--super-app-primary-red) !important;
+   outline: none;
+   color: var(--super-app-body-text) !important;
+   font-size: 24px !important;
+   font-weight: 600 !important;
+}
+
+.resend-otp {
+   color: var(--super-app-primary-red);
+}
+
+.resend-otp:disabled,
+.resend-otp:disabled:hover {
+   color: var(--super-app-disabled-text);
+}
+
+.already-have-an-acc:hover, .resend-otp:hover {
+   color: var(--super-app-primary-red);
+}
+
+
+.main-content-container {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.form-fields {
+   padding-top: 0;
+}
+
+.page__header {
+   margin-top: 15%;
+}
+
+.page__header {
+   margin-bottom: 99px;
+   width: 287px;
+}
+
+/* Basic Login page */
+#no-id,
+#how-do-i-login {
+   display: none;
+}
+
+/* Basic Signup page */
+#account-exists-link,
+#learn-more-link {
+   display: none;
+}
+
+.otp-bottom-content {
+   display: flex;
+   flex-direction: column-reverse;
+}
+
+.otp-acc-exist {
+   margin-bottom: 1rem;
+}
+
+.auth-container-height {
+   height: 95vh !important;
+}
+
+@media only screen and (max-width: 1200px) {
+   .site__wrap {
+      width: 48rem;
+      max-width: 100%;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+   }
+
+   .btn-cancel {
+      width: 94% !important;
+   }
+}
+
+.justify-content-start {
+   justify-content: start !important;
+}
+
+.margin-top-0 {
+   margin-top: 0 !important;
+}
+
+.form-fields-m-b {
+   margin-bottom: 58px !important;
+}
+
+.parsley-errors-list {
+   background-color: #FFF !important;
+   color: var(--super-app-error-text) !important;
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 15px;
+   margin: 2px 0 0 7px !important;
+   text-align: left;
+   width: 305px;
+}
+
+#otp-err-msg {
+   margin: 12px auto 0 auto !important;
+   text-align: center;
+}
+
+input.parsley-error ~ .txt-form-label {
+   color: var(--super-app-grey) !important;
+}
+
+input.parsley-error,
+input.parsley-error[type='text']:focus,
+input.parsley-error[type='tel']:focus {
+   border: 1px solid var(--super-app-error-text) !important;
+}
+
+.parsley-success-list {
+   background-color: #FFF !important;
+   color: var(--super-app-success-text) !important;
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 15px;
+   margin-top: 12px;
+   text-align: center;
+   width: 285px;
+   height: 30px;
+   margin-right: auto;
+   margin-left: auto;
+   margin-bottom: -25px !important;
+}
+
+.otp-success-txt {
+   display: none !important;
+}
+
+.viu-error-image {
+    display: none !important;
+}
+
+.viu-error-header {
+    display: none !important;
+}

@@ -1,0 +1,499 @@
+<!DOCTYPE html><!-- login.jsp--><!--
+~ Copyright (c) 2005-2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+~
+~ WSO2 Inc. licenses this file to you under the Apache License,
+~ Version 2.0 (the "License"); you may not use this file except
+~ in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~ http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing,
+~ software distributed under the License is distributed on an
+~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~ KIND, either express or implied. See the License for the
+~ specific language governing permissions and limitations
+~ under the License.
+--><!-- container --><html class="site no-js lang--en" lang="en"><head></head><body class="theme--dark"><input type="hidden" id="baseURL" value="https://did.dialog.lk:443/authenticationendpoint">
+<input type="hidden" id="baseURLWithPort" value="https://did.dialog.lk:443">
+
+
+	
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Mobile Connect</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- load main script early asyncronously -->
+	<script async="" src="js/gtm.js"></script><script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/handlebars-1.0.rc.1.js"></script>
+	<script src="js/parsley.min.js"></script>
+	<script src="js/scripts.js"></script>
+    <script src="js/disableBack.js"></script>
+
+	<noscript>
+		<!-- Fallback synchronous download, halt page rendering if load is slow  -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,300italic,700italic"
+			  rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</noscript>
+	<!-- loads fonts asyncronously preventing font loading from block page render -->
+	<script>
+		// Config for loading the web fonts
+		var WebFontConfig = {
+			google: {
+				families: ['Roboto:400,300,700,400italic,300italic,700italic']
+			},
+			active: function () {
+				// Set a cookie that the font has been downloaded and should be cached
+				var d = new Date();
+				d.setTime(d.getTime() + (7 * 86400000)); // plus 7 Days
+				document.cookie = "cachedroboto=true; expires=" + d.toGMTString() + "; path=/";
+			}
+		};
+	</script>
+	<script src="js/webfontloader.js"></script>
+	<!-- Adds IE root class without breaking doctype -->
+	<!--[if IE]>
+	<script>document.documentElement.className = document.documentElement.className + " ie";</script>
+	<![endif]-->
+	<script type="text/javascript" src="js/modernizr.js"></script>
+
+	
+	<link href="css/spark-style.css" rel="stylesheet">
+	
+
+
+	
+	<link rel="stylesheet" href="css/1-style.css">
+	
+
+	
+
+	<script>
+		window.localStorage.setItem('redirect_uri', 'lk.wow.superman:/callback');
+		window.localStorage.setItem('ui_theme_id', '1');
+		window.localStorage.setItem('locale_content_id', '1');
+		window.localStorage.setItem('locale', 'EN');
+	</script>
+
+
+
+
+
+
+
+
+
+<input type="hidden" id="msisdn" value="null">
+<header class="site-header">
+	
+		
+		
+		
+		
+		
+		
+	
+	<div class="top-header">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<defs>
+				<linearGradient id="gradient">
+					<stop offset="0%" stop-color="#B04BC4"></stop>
+					<stop offset="100%" stop-color="#E48C76"></stop>
+				</linearGradient>
+			</defs>
+			
+			<path fill="url(#gradient)" d="M0,256L60,266.7C120,277,240,299,360,277.3C480,256,600,192,720,149.3C840,107,960,85,1080,112C1200,139,1320,213,1380,250.7L1440,288L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+		</svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<defs>
+				<linearGradient id="gradient2">
+					<stop offset="0%" stop-color="#B04BC4"></stop>
+					<stop offset="100%" stop-color="#E48C76"></stop>
+				</linearGradient>
+			</defs>
+			
+			<path fill="url(#gradient2)" d="M0,64L60,101.3C120,139,240,213,360,202.7C480,192,600,96,720,80C840,64,960,128,1080,144C1200,160,1320,128,1380,112L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+		</svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<defs>
+				<linearGradient id="gradient3">
+					<stop offset="0%" stop-color="#B04BC4"></stop>
+					<stop offset="100%" stop-color="#E48C76"></stop>
+				</linearGradient>
+			</defs>
+			
+			<path fill="url(#gradient3)" d="M0,288L60,245.3C120,203,240,117,360,106.7C480,96,600,160,720,197.3C840,235,960,245,1080,224C1200,203,1320,149,1380,122.7L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+		</svg>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	<div class="middle-header">
+		<div class="image-wrapper">
+			<img src="images/dialog_logo.png" alt="Operator">
+		</div>
+	</div>
+	
+        
+    
+</header>
+<form action="../../commonauth" method="post" id="loginForm" class="form-horizontal" data-parsley-validate="" novalidate="">
+	
+
+		
+		
+		
+		
+		
+		<div class="container auth-container-height">
+			
+
+			<div class="row h-100">
+				<div class="span12 h-100">
+
+					    
+
+        
+            
+            
+            
+            
+            
+                
+            
+        
+
+    
+        
+            <!-- Google Tag Manager -->
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                var journeyType = 'No Header Enriched';
+                var msisdnType = '';
+                if( 'null' !== 'null'){
+                    if(false){
+                        journeyType = journeyType + ' - has CID Profile';
+                    } else {
+                        journeyType = journeyType + ' - no CID Profile';
+                    }
+                    if (/^\d+$/.test('null')) {
+                        msisdnType = 'Mobile';
+                    } else {
+                        msisdnType = 'Email'
+                    }
+                    journeyType = journeyType + ' - ' + msisdnType;
+                    window.dataLayer.push({
+                    'event': 'cid_load',
+                    'advertising_id': 'e1a50b92-9503-4584-a7aa-741195b43066',
+                    'referrer_app': 'qH9pNK62W8XtInwq1i1mvuYUUJEa',
+                    'journey_type': journeyType,
+                    'user_id': 'null'
+                    });
+                } else {
+                    window.dataLayer.push({
+                    'event': 'cid_load',
+                    'advertising_id': 'e1a50b92-9503-4584-a7aa-741195b43066',
+                    'referrer_app': 'qH9pNK62W8XtInwq1i1mvuYUUJEa',
+                    'journey_type': journeyType
+                    });
+                }
+                setCookie('journey_type', journeyType, 1);
+                (function(w,d,s,l,i){w[l]=w[l]||[];
+                w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);})
+                (window,document,'script','dataLayer','GTM-KPKGJMW4');
+                function setCookie(cname, cvalue, expirydays) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (expirydays * 24 * 60 * 60 * 1000));
+                    var expires = "expires=" + date.toGMTString();
+                    document.cookie = cname + "=" + cvalue + "; " + expires;
+                }
+            </script>
+            <!-- End Google Tag Manager -->
+        
+        <input type="hidden" name="sessionDataKey" value="42db0d05-df5c-4148-9150-b3902ab2d357">
+
+        
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPKGJMW4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="site__root" id="content-placeholder">
+
+        </div>
+        
+
+        
+                <main class="site__main site__wrap section v-distribute">
+        
+            
+        
+        
+            
+            
+            
+            
+                <header class="page__header">
+                    <div class="sub-text-wrapper">
+                        
+                            
+                            
+                            
+                            
+                            
+                                Enter your mobile number
+                            
+                        
+                    </div>
+                </header>
+                <div class="main-content-container">
+                    <ul class="form-fields margin-bottom-4">
+                        <li class="float-input-outer-container">
+                            <div class="float-input-container">
+                                <input class="float-input"
+                                       type="tel"
+                                       id="msisdnInput"
+                                       autocomplete="off"
+                                       onblur="handleFloatInputBlur(event)"
+                                       name="msisdn" autofocus required onkeyup="processInput()"
+                                       pattern="(^((\+947)|(00947)|(07)|(7)){1}[\d]{8}$)"
+                                       data-parsley-errors-container="#parsley-err"
+                                       data-parsley-error-message='Please enter a valid mobile number'>{{set_msisdn this}}</input>
+                                <label class="txt-form-label" for="msisdnInput">
+                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            Mobile number
+                                        
+                                    
+                                </label>
+                            </div>
+                            <div class="parsley-err" id="parsley-err">
+                                
+                            </div>
+                        </li>
+                        <li class="parsley-success-list filled">
+                            
+                        </li>
+                    </ul>
+                    <div class="bottom-content-container">
+                        <div class="tnc-container terms-wrapper">
+                            
+                            
+                                <div class="round-checkbox">
+                                    <input id="termCheckBox" onchange="processInput()" type="checkbox" class="terms-checkbox">
+                                    <label for="termCheckBox"></label>
+                                </div>
+                                <div class="terms-label">
+                                    I have read, understood and accept this <a href="https://service.wow.lk/wow-superapp-documents/index.php?lang=en&page=dialogPrivacyPolicy" target="_blank">Privacy Notice</a> & <a href="https://service.wow.lk/wow-superapp-documents/index.php?lang=en&page=terms" target="_blank">Terms and Conditions</a>
+                                </div>
+                                	
+                            
+                        </div>
+                        <div class="btn-container">
+                            <button disabled type="submit" id="loginBtn" class="btn btn-submit" onclick="submitLoginForm()">
+                                Next
+                            </button>
+                        </div>
+                        
+                        <div id="how-do-i-login" class="link-container">
+                            <button type="button" class="btn btn-learn-more" onclick="howToLogin('EN')">
+                                How do I login?
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+        </main>
+        
+            
+        
+        </script>
+        <script>
+            let checkBox, loginBtn;
+
+            const debounce = (callback, wait) => {
+                let timeoutId = null;
+                return (...args) => {
+                    window.clearTimeout(timeoutId);
+                    timeoutId = window.setTimeout(() => {
+                        callback.apply(null, args);
+                    }, wait);
+                };
+            }
+
+            const triggerParsley = debounce((ev) => {
+                $('#loginForm').parsley().validate();
+            }, 1000);
+
+
+            function processInput() {
+                buildCache();
+                loginBtn.disabled = !validateInputs();
+            }
+
+            function validateInputs() {
+              return validateUsername()
+                
+                    && checkBox.checked;
+                
+            }
+
+            function validateUsername() {
+                const pattern = "(^((\\+947)|(00947)|(07)|(7)){1}[\\d]{8}$)";
+                const inputVal = document.getElementById('msisdnInput').value;
+
+                inputVal.length > 3 && triggerParsley();
+
+                return inputVal.match(pattern);
+            }
+
+            function buildCache() {
+                if (!checkBox) {
+                    checkBox = document.getElementById('termCheckBox');
+                }
+
+                if (!loginBtn) {
+                    loginBtn = document.getElementById('loginBtn');
+                }
+            }
+
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+        <script type="text/javascript" src="js/msisdn.js"></script>
+
+				</div>
+			</div>
+
+			
+		</div>
+</form>
+
+
+<div id="push"></div>
+<script>
+	$(document).ready(function () {
+		$('.main-link').click(function () {
+			$('.main-link').next().hide();
+			$(this).next().toggle('fast');
+			var w = $(document).width();
+			var h = $(document).height();
+			$('.overlay').css("width", w + "px").css("height", h + "px").show();
+		});
+		$('.overlay').click(function () {
+			$(this).hide();
+			$('.main-link').next().hide();
+		});
+
+	});
+	function myFunction(key, value, name) {
+		var object = document.getElementById(name);
+		var domain = object.value;
+
+
+		if (domain != "") {
+			document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=42db0d05-df5c-4148-9150-b3902ab2d357&domain=" + domain;
+		} else {
+			document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=42db0d05-df5c-4148-9150-b3902ab2d357";
+		}
+	}
+
+	function handleNoDomain(key, value) {
+
+
+		document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=42db0d05-df5c-4148-9150-b3902ab2d357";
+
+	}
+
+	function saveLink() {
+		var url = window.location.href;
+		var date = new Date();
+		var expiryMins = 5;
+		date.setTime(date.getTime() + (expiryMins * 60 * 1000));
+		var expires = "expires=" + date.toUTCString();
+		document.cookie = "loginRequestURL=" + encodeURIComponent(url) + "; path=/; " + expires;
+		return true;
+	}
+
+	function backToPreviousFlow(mode) {
+		if (mode === "login") {
+			backToSignup();
+		} else if (mode === "signup") {
+			backToLogin();
+		}
+	}
+
+	function backToSignup() {
+		var sessionDataKey = qs('sessionDataKey');
+		var commonAuthURL;
+		commonAuthURL = "/commonauth/?sessionDataKey=" + sessionDataKey
+				+ "&action=redirectToSignup&backTriggered=true";
+		window.location = commonAuthURL;
+	}
+
+	function backToLogin() {
+		var sessionDataKey = qs('sessionDataKey');
+		var commonAuthURL;
+		commonAuthURL = "/commonauth/?sessionDataKey=" + sessionDataKey
+				+ "&action=redirectToLogin&backTriggered=true";
+		window.location = commonAuthURL;
+	}
+
+	function qs(key) {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars[key];
+	}
+
+	setCookie("referrer_app", 'qH9pNK62W8XtInwq1i1mvuYUUJEa', 1);
+	setCookie("user_id", 'null', 1);
+	setCookie("advertisingId", 'e1a50b92-9503-4584-a7aa-741195b43066', 1);
+
+	function setCookie(cname, cvalue, expirydays) {
+
+    	if (cvalue === null) {
+            cvalue = document.getElementById('msisdn').value;
+        }
+
+        var date = new Date();
+        date.setTime(date.getTime() + (expirydays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + date.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+</script>
+
+
+
+
+
+
+</body><!-- The handlebar template --></html>

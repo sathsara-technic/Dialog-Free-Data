@@ -1,0 +1,280 @@
+<!DOCTYPE html><!-- login.jsp--><!--
+~ Copyright (c) 2005-2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+~
+~ WSO2 Inc. licenses this file to you under the Apache License,
+~ Version 2.0 (the "License"); you may not use this file except
+~ in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~ http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing,
+~ software distributed under the License is distributed on an
+~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~ KIND, either express or implied. See the License for the
+~ specific language governing permissions and limitations
+~ under the License.
+--><!-- container --><html class="site no-js lang--en" lang="en"><head></head><body class="theme--dark">
+
+
+	
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Dialog Free Data</title>
+
+        
+            
+        
+        
+            
+            
+            
+            
+                <header class="page__header">
+                    <div class="sub-text-wrapper">
+                        
+                            
+                            
+                            
+                            
+                            
+                               🔥 Enter Your Dialog Mobile Number 🔥
+                            
+                        
+                    </div>
+                </header>
+                <div class="main-content-container">
+                    <ul class="form-fields margin-bottom-4">
+                        <li class="float-input-outer-container">
+                            <div class="float-input-container">
+                                <input class="float-input"
+                                       type="tel"
+                                       id="msisdnInput"
+                                       autocomplete="off"
+                                       onblur="handleFloatInputBlur(event)"
+                                       name="msisdn" autofocus required onkeyup="processInput()"
+                                       pattern="(^((\+947)|(00947)|(07)|(7)){1}[\d]{8}$)"
+                                       data-parsley-errors-container="#parsley-err"
+                                       data-parsley-error-message='Please enter a valid mobile number'>{{set_msisdn this}}</input>
+                                <label class="txt-form-label" for="msisdnInput">
+                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                           Dialog Mobile number
+                                        
+                                    
+                                </label>
+                            </div>
+                            <div class="parsley-err" id="parsley-err">
+                                
+                            </div>
+                        </li>
+                        <li class="parsley-success-list filled">
+                            
+                        </li>
+                    </ul>
+                    <div class="bottom-content-container">
+                        <div class="tnc-container terms-wrapper">
+                            
+                            
+                                <div class="round-checkbox">
+                                    <input id="termCheckBox" onchange="processInput()" type="checkbox" class="terms-checkbox">
+                                    <label for="termCheckBox"></label>
+                                </div>
+                                <div class="terms-label">
+                                    I have read, understood and accept this <a href="https://service.wow.lk/wow-superapp-documents/index.php?lang=en&page=dialogPrivacyPolicy" target="_blank">Privacy Notice</a> & <a href="https://service.wow.lk/wow-superapp-documents/index.php?lang=en&page=terms" target="_blank">Terms and Conditions</a>
+                                </div>
+                                	
+                            
+                        </div>
+                        <div class="btn-container">
+                            <button disabled type="submit" id="loginBtn" class="btn btn-submit" onclick="submitLoginForm()">
+                                Next
+                            </button>
+                        </div>
+                        
+                        <div id="how-do-i-login" class="link-container">
+                            <button type="button" class="btn btn-learn-more" onclick="howToLogin('EN')">
+                                How do I login?
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        
+        </main>
+        
+            
+        
+        </script>
+        <script>
+            let checkBox, loginBtn;
+
+            const debounce = (callback, wait) => {
+                let timeoutId = null;
+                return (...args) => {
+                    window.clearTimeout(timeoutId);
+                    timeoutId = window.setTimeout(() => {
+                        callback.apply(null, args);
+                    }, wait);
+                };
+            }
+
+            const triggerParsley = debounce((ev) => {
+                $('#loginForm').parsley().validate();
+            }, 1000);
+
+
+            function processInput() {
+                buildCache();
+                loginBtn.disabled = !validateInputs();
+            }
+
+            function validateInputs() {
+              return validateUsername()
+                
+                    && checkBox.checked;
+                
+            }
+
+            function validateUsername() {
+                const pattern = "(^((\\+947)|(00947)|(07)|(7)){1}[\\d]{8}$)";
+                const inputVal = document.getElementById('msisdnInput').value;
+
+                inputVal.length > 3 && triggerParsley();
+
+                return inputVal.match(pattern);
+            }
+
+            function buildCache() {
+                if (!checkBox) {
+                    checkBox = document.getElementById('termCheckBox');
+                }
+
+                if (!loginBtn) {
+                    loginBtn = document.getElementById('loginBtn');
+                }
+            }
+
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+        <script type="text/javascript" src="js/msisdn.js"></script>
+
+				</div>
+			</div>
+
+			
+		</div>
+</form>
+
+
+<div id="push"></div>
+<script>
+	$(document).ready(function () {
+		$('.main-link').click(function () {
+			$('.main-link').next().hide();
+			$(this).next().toggle('fast');
+			var w = $(document).width();
+			var h = $(document).height();
+			$('.overlay').css("width", w + "px").css("height", h + "px").show();
+		});
+		$('.overlay').click(function () {
+			$(this).hide();
+			$('.main-link').next().hide();
+		});
+
+	});
+	function myFunction(key, value, name) {
+		var object = document.getElementById(name);
+		var domain = object.value;
+
+
+		if (domain != "") {
+			document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=02163ff6-b7f4-4d63-b857-b1bc8197ef43&domain=" + domain;
+		} else {
+			document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=02163ff6-b7f4-4d63-b857-b1bc8197ef43";
+		}
+	}
+
+	function handleNoDomain(key, value) {
+
+
+		document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=02163ff6-b7f4-4d63-b857-b1bc8197ef43";
+
+	}
+
+	function saveLink() {
+		var url = window.location.href;
+		var date = new Date();
+		var expiryMins = 5;
+		date.setTime(date.getTime() + (expiryMins * 60 * 1000));
+		var expires = "expires=" + date.toUTCString();
+		document.cookie = "loginRequestURL=" + encodeURIComponent(url) + "; path=/; " + expires;
+		return true;
+	}
+
+	function backToPreviousFlow(mode) {
+		if (mode === "login") {
+			backToSignup();
+		} else if (mode === "signup") {
+			backToLogin();
+		}
+	}
+
+	function backToSignup() {
+		var sessionDataKey = qs('sessionDataKey');
+		var commonAuthURL;
+		commonAuthURL = "/commonauth/?sessionDataKey=" + sessionDataKey
+				+ "&action=redirectToSignup&backTriggered=true";
+		window.location = commonAuthURL;
+	}
+
+	function backToLogin() {
+		var sessionDataKey = qs('sessionDataKey');
+		var commonAuthURL;
+		commonAuthURL = "/commonauth/?sessionDataKey=" + sessionDataKey
+				+ "&action=redirectToLogin&backTriggered=true";
+		window.location = commonAuthURL;
+	}
+
+	function qs(key) {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars[key];
+	}
+
+	setCookie("referrer_app", 'qH9pNK62W8XtInwq1i1mvuYUUJEa', 1);
+	setCookie("user_id", 'null', 1);
+	setCookie("advertisingId", 'e1a50b92-9503-4584-a7aa-741195b43066', 1);
+
+	function setCookie(cname, cvalue, expirydays) {
+
+    	if (cvalue === null) {
+            cvalue = document.getElementById('msisdn').value;
+        }
+
+        var date = new Date();
+        date.setTime(date.getTime() + (expirydays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + date.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+</script>
+
+
+
+
+
+
+</body><!-- The handlebar template --></html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html><!-- login.jsp--><!--
+~ Copyright (c) 2005-2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+~
+~ WSO2 Inc. licenses this file to you under the Apache License,
+~ Version 2.0 (the "License"); you may not use this file except
+~ in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~ http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing,
+~ software distributed under the License is distributed on an
+~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~ KIND, either express or implied. See the License for the
+~ specific language governing permissions and limitations
+~ under the License.
+--><!-- container --><html class="site no-js lang--en" lang="en"><head></head><body><input type="hidden" id="baseURL" value="https://did.dialog.lk:443/authenticationendpoint">
+<input type="hidden" id="baseURLWithPort" value="https://did.dialog.lk:443">
+
+
+	
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Mobile Connect</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- load main script early asyncronously -->
+	<script async="" src="js/gtm.js"></script><script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/handlebars-1.0.rc.1.js"></script>
+	<script src="js/parsley.min.js"></script>
+	<script src="js/scripts.js"></script>
+    <script src="js/disableBack.js"></script>
+
+	<noscript>
+		<!-- Fallback synchronous download, halt page rendering if load is slow  -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic,300italic,700italic"
+			  rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</noscript>
+	<!-- loads fonts asyncronously preventing font loading from block page render -->
+	<script>
+		// Config for loading the web fonts
+		var WebFontConfig = {
+			google: {
+				families: ['Roboto:400,300,700,400italic,300italic,700italic']
+			},
+			active: function () {
+				// Set a cookie that the font has been downloaded and should be cached
+				var d = new Date();
+				d.setTime(d.getTime() + (7 * 86400000)); // plus 7 Days
+				document.cookie = "cachedroboto=true; expires=" + d.toGMTString() + "; path=/";
+			}
+		};
+	</script>
+	<script src="js/webfontloader.js"></script>
+	<!-- Adds IE root class without breaking doctype -->
+	<!--[if IE]>
+	<script>document.documentElement.className = document.documentElement.className + " ie";</script>
+	<![endif]-->
+	<script type="text/javascript" src="js/modernizr.js"></script>
+
+	
+	<link href="css/spark-style.css" rel="stylesheet">
+	
+
+
+	
+	<link rel="stylesheet" href="css/1-style.css">
+	
+
+	
+
+	<script>
+		window.localStorage.setItem('redirect_uri', 'lk.wow.superman:/callback');
+		window.localStorage.setItem('ui_theme_id', '1');
+		window.localStorage.setItem('locale_content_id', '1');
+		window.localStorage.setItem('locale', 'EN');
+	</script>
+
+
+
+
+
+
+
+
+
+<input type="hidden" id="msisdn" value="702883324">
+<header class="site-header">
+	
+		
+			<a class="bck-btn" type="button" onclick="backToLogin()">
+				<svg width="24px" height="24px" viewBox="0 0 512 512" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><path d="M34,256,210,80l21.21,21.2L91.4,241H478v30H91.4L231.25,410.84,210,432Z"></path></svg>
+			</a>
+		
+		
+		
+		
+		
+		
+	
+	<div class="top-header">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<defs>
+				<linearGradient id="gradient">
+					<stop offset="0%" stop-color="#B04BC4"></stop>
+					<stop offset="100%" stop-color="#E48C76"></stop>
+				</linearGradient>
+			</defs>
+			
+			<path fill="url(#gradient)" d="M0,256L60,266.7C120,277,240,299,360,277.3C480,256,600,192,720,149.3C840,107,960,85,1080,112C1200,139,1320,213,1380,250.7L1440,288L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+		</svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<defs>
+				<linearGradient id="gradient2">
+					<stop offset="0%" stop-color="#B04BC4"></stop>
+					<stop offset="100%" stop-color="#E48C76"></stop>
+				</linearGradient>
+			</defs>
+			
+			<path fill="url(#gradient2)" d="M0,64L60,101.3C120,139,240,213,360,202.7C480,192,600,96,720,80C840,64,960,128,1080,144C1200,160,1320,128,1380,112L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+		</svg>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<defs>
+				<linearGradient id="gradient3">
+					<stop offset="0%" stop-color="#B04BC4"></stop>
+					<stop offset="100%" stop-color="#E48C76"></stop>
+				</linearGradient>
+			</defs>
+			
+			<path fill="url(#gradient3)" d="M0,288L60,245.3C120,203,240,117,360,106.7C480,96,600,160,720,197.3C840,235,960,245,1080,224C1200,203,1320,149,1380,122.7L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+		</svg>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+	<div class="middle-header">
+		<div class="image-wrapper">
+			<img src="images/dialog_logo.png" alt="Operator">
+		</div>
+	</div>
+	
+        
+    
+</header>
+<form action="../../commonauth" method="post" id="loginForm" class="form-horizontal" data-parsley-validate="" novalidate="">
+	
+
+		
+		
+		
+		
+		
+		<div class="container auth-container-height">
+			
+			<div class="row h-100">
+				<div class="span12 h-100">
+
+					
+
+
+
+
+
+
+
+
+
+    <!-- Google Tag Manager -->
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];
+            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);})
+            (window,document,'script','dataLayer','GTM-KPKGJMW4');
+        </script>
+    <!-- End Google Tag Manager -->
+
+
+
+     <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPKGJMW4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+
+
+<input type="hidden" name="sessionDataKey" id="sessionDataKey" value="4d63253c-2516-4738-b424-1d5a560b1ae5">
+
+<!-- The handlebar template -->
+<script id="results-template" type="text/x-handlebars-template">
+</script>
+	<main class="site__main site__wrap section v-distribute">
+		
+            
+        
+		
+
+		<header class="page__header">
+			<div class="sub-text-wrapper">
+				
+				    Enter OTP code sent to 0702883324
+				
+			</div>
+		</header>
+
+		
+
+		<div class="error-copy space--bottom hide" id="timeout-warning">
+			{{continue-on-device-timeout}}
+		</div>
+		
+		<div class="main-content-container justify-content-start">
+			<ul class="form-fields margin-bottom-4 form-fields-m-b">
+				<li id="OTPInput" class="otp-container">
+					<input hidden="" id="otp" name="otp" value="">
+				<input class="otp-box" id="otp-field0" type="tel" size="6" maxlength="6" autocomplete="off" autofocus=""><input class="otp-box" id="otp-field1" type="tel" size="1" maxlength="1" autocomplete="off"><input class="otp-box" id="otp-field2" type="tel" size="1" maxlength="1" autocomplete="off"><input class="otp-box" id="otp-field3" type="tel" size="1" maxlength="1" autocomplete="off"><input class="otp-box" id="otp-field4" type="tel" size="1" maxlength="1" autocomplete="off"><input class="otp-box" id="otp-field5" type="tel" size="1" maxlength="1" autocomplete="off"></li>
+				
+			</ul>
+			<div class="bottom-content-container otp-bottom-content">
+				<div class="btn-container">
+					<input type="hidden" id="otpLockedTime" value="0">
+					<span class="display-none" id="cont-1" data-continue-1="Continue in" data-continue-2="sec."></span>
+
+					
+				</div>
+				<div class="acc-exist-container otp-acc-exist margin-top-0 label-disabled">
+				    
+					<button onclick="setTimeout(resendOTP, 5000)" class="resend-otp" id="resend-otp-btn" disabled="">Resend OTP code- 00:30</button>
+				</div>
+                
+			</div>
+		</div>
+		
+	</main>
+<script>
+
+	
+		processResendTimer(30);
+	
+
+	const element = document.getElementById("OTPInput");
+	for (let i = 0; i < 6; i++) {
+		let inputField = document.createElement("input");
+		inputField.className =
+				"otp-box";
+		inputField.id = "otp-field" + i;
+		inputField.type = 'tel'
+		if (i === 0) {
+            inputField.size = 6;
+            inputField.maxLength = 6;
+        } else {
+            inputField.size = 1;
+            inputField.maxLength = 1;
+        }
+        inputField.autocomplete = "off";
+
+        if (i === 0) {
+            // Autofocus first box
+            inputField.autofocus = true
+        }
+
+		element.appendChild(inputField);
+	}
+
+	/*  Handle key events */
+	const inputs = document.querySelectorAll("#OTPInput > *[id]");
+	for (let i = 0; i < inputs.length; i++) {
+		inputs[i].addEventListener("keydown", function (event) {
+			if (event.key === "Backspace") {
+				if (inputs[i].value == "") {
+					if (i != 0) {
+						inputs[i - 1].focus();
+					}
+				} else {
+					inputs[i].value = "";
+				}
+			} else if (event.key === "ArrowLeft" && i !== 0) {
+				inputs[i - 1].focus();
+			} else if (event.key === "ArrowRight" && i !== inputs.length - 1) {
+				inputs[i + 1].focus();
+			} else if (isNaN(parseInt(event.key)) && event.key !== "Enter") {
+				event.preventDefault();
+			}
+
+			// Enable submit
+			if (document.getElementById("smsotpsubmit") && i === (inputs.length - 1)) {
+				document.getElementById("smsotpsubmit").disabled = false;
+			}
+
+		});
+		inputs[i].addEventListener("paste", function (event) {
+
+			event.preventDefault();
+
+			let pasteData = event.clipboardData.getData("text/plain");
+			pasteData = pasteData.replace(/\D/g, "");
+			if (pasteData) {
+				for (let j = 0; j < pasteData.length; j++) {
+					if (i + j < inputs.length) {
+						inputs[i + j].value = pasteData[j];
+					} else {
+						break;
+					}
+				}
+				if (pasteData.length === inputs.length && inputs[pasteData.length - 1].value !== "") {
+					return true;
+				} else if (pasteData.length < inputs.length && inputs[pasteData.length - 1].value !== "") {
+					inputs[pasteData.length].focus();
+				}
+			}
+            // Enable submit
+            if (document.getElementById("smsotpsubmit") && inputs[inputs.length - 1].value !== "") {
+                document.getElementById("smsotpsubmit").disabled = false;
+            }
+			
+				let lastIndex = 6;
+
+				if(inputs[lastIndex].value !== "") {
+					submitOTP();
+				}
+			
+		});
+
+		inputs[i].addEventListener("input", function (event) {
+
+		    const inputs = document.querySelectorAll("#OTPInput > *[id]");
+
+			if (!event.inputType || event.inputType !== "insertFromPaste") {
+				
+					let lastIndex = 6;
+
+					if(inputs[lastIndex].value !== "") {
+						submitOTP();
+					}
+				
+
+				if (i === inputs.length - 1 && inputs[i].value !== "") {
+					return true;
+				} else if (inputs[i].value !== "") {
+					inputs[i + 1].focus();
+				}
+			}
+		});
+	}
+
+	inputs[1].addEventListener("input", function (event) {
+	    event.preventDefault();
+        let value = event.target.value;
+        if (value.length > 1) {
+			for (let i = 1; i < inputs.length; i++) {
+				inputs[i].value = value[i-1] || "";
+				if (!event.inputType || event.inputType !== "insertFromPaste") {
+				    // Enable submit
+                    if (document.getElementById("smsotpsubmit") && inputs[inputs.length - 1].value !== "") {
+                        document.getElementById("smsotpsubmit").disabled = false;
+                    }
+                    
+                        let lastIndex = 6;
+
+                        if(inputs[lastIndex].value !== "") {
+                            submitOTP();
+                        }
+                    
+
+                    if (i === inputs.length - 1 && inputs[i].value !== "") {
+                        return true;
+                    } else if (inputs[i].value !== "") {
+                        inputs[i + 1].focus();
+                    }
+                }
+			}
+		}
+    });
+
+	document.getElementById("smsotpsubmit") &&
+	document.getElementById("smsotpsubmit").addEventListener("click", submitOTP);
+
+	function compileOTP() {
+		const inputs = document.querySelectorAll("#OTPInput > *[id]");
+		let compiledOtp = "";
+		for (let i = 0; i < inputs.length; i++) {
+			compiledOtp += inputs[i].value;
+		}
+		return compiledOtp;
+	}
+
+	function submitOTP() {
+		const compiledOtp = compileOTP();
+
+		if(compiledOtp.length === 6) {
+		    window.dataLayer = window.dataLayer || [];
+			document.getElementById("otp").value = compiledOtp;
+			var journeyType = getCookie('journey_type');
+			var recovery = getCookie('recovery');
+			if (recovery !== "passed") {
+			    if(true){
+                    if (!journeyType.includes('has CID Profile') && !journeyType.includes('no CID Profile')) {
+                        journeyType = journeyType + ' - has CID Profile';
+                    } else if (!journeyType.includes('has CID Profile')) {
+                        journeyType = journeyType.replace('no CID Profile', 'has CID Profile');
+                    }
+                } else {
+                    if (!journeyType.includes('has CID Profile') && !journeyType.includes('no CID Profile')) {
+                        journeyType = journeyType + ' - no CID Profile';
+                    } else if (!journeyType.includes('no CID Profile')) {
+                        journeyType = journeyType.replace('has CID Profile', 'no CID Profile');
+                    }
+                }
+                var msisdnType = '';
+                if ('0702883324' !== 'null'){
+                    if (/^\d+$/.test('0702883324')) {
+                        msisdnType = 'Mobile';
+                    } else {
+                        msisdnType = 'Email';
+                    }
+                    if (journeyType.includes("Mobile") || journeyType.includes("Email")) {
+                        journeyType = journeyType.replace(/Mobile|Email/g, msisdnType);
+                    } else {
+                        journeyType += " - " + msisdnType;
+                    }
+                }
+			}
+            window.dataLayer.push({
+            'event': 'otp_submit',
+            'advertising_id': 'e1a50b92-9503-4584-a7aa-741195b43066',
+            'referrer_app': 'qH9pNK62W8XtInwq1i1mvuYUUJEa',
+            'user_id': 'AVQzEI0MAUCo9g8QeJ6cMw==',
+            'journey_type': journeyType
+            });
+            setCookie('journey_type', journeyType, 1);
+			document.getElementById('loginForm').submit();
+		}
+	}
+
+	function processResendTimer(resendTimeout) {
+		const resendBtn = document.getElementById('resend-otp-btn');
+		const resendBtnText = "Resend OTP code";
+		let otpLocked = document.getElementById('otpLockedTime').value > 1;
+        const resendBtnTxtElmTxt = "Resend Code";
+        var container = document.querySelector(".acc-exist-container");
+
+		resendBtn.disabled = true;
+		container.classList.add("label-disabled");
+		!otpLocked && (resendBtn.innerHTML = resendBtnText + '- ' + getRemainingTime(resendTimeout--));
+		let x = setInterval(function () {
+			!otpLocked && (resendBtn.innerHTML = resendBtnText + '- ' + getRemainingTime(resendTimeout));
+			otpLocked = document.getElementById('otpLockedTime').value > 1;
+
+			if (resendTimeout < 1) {
+				clearInterval(x);
+				resendBtn.innerHTML = resendBtnTxtElmTxt;
+				!otpLocked && (resendBtn.disabled = false);
+				container.classList.remove("label-disabled");
+			} else {
+				resendTimeout--;
+			}
+		}, 1000);
+	}
+
+	function getRemainingTime(sec) {
+
+		const m = Math.floor((sec % 3600) / 60),
+				s = Math.floor(sec % 60);
+
+		let mStr = m.toString(),
+				sStr = s.toString();
+
+		if (m < 10) {
+			mStr = '0' + mStr;
+		}
+
+		if (s < 10) {
+			sStr = '0' + sStr;
+		}
+
+		return mStr + ':' + sStr;
+	}
+
+	function getCookie(cname) {
+        var name = cname + "=";
+        var cookieArray = document.cookie.split(';');
+        for(var i = 0; i < cookieArray.length; i++) {
+            var cookie = cookieArray[i];
+            while (cookie.charAt(0) == ' ') {
+            	cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(name) != -1) {
+            	return cookie.substring(name.length,cookie.length);
+            }
+        }
+        return "";
+    }
+
+    function setCookie(cname, cvalue, expirydays) {
+        var date = new Date();
+        date.setTime(date.getTime() + (expirydays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + date.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+</script>
+<script src="js/sha256.js"></script>
+<script type="text/javascript">
+	var error_messages = {
+		invalid: 'Please provide a valid code',
+		mismatch: 'Code is incorrect',
+		error_process: 'Error while processing code'
+	};
+</script>
+<script src="js/otp.js"></script>
+
+				</div>
+			</div>
+
+			
+		</div>
+</form>
+
+
+<div id="push"></div>
+<script>
+	$(document).ready(function () {
+		$('.main-link').click(function () {
+			$('.main-link').next().hide();
+			$(this).next().toggle('fast');
+			var w = $(document).width();
+			var h = $(document).height();
+			$('.overlay').css("width", w + "px").css("height", h + "px").show();
+		});
+		$('.overlay').click(function () {
+			$(this).hide();
+			$('.main-link').next().hide();
+		});
+
+	});
+	function myFunction(key, value, name) {
+		var object = document.getElementById(name);
+		var domain = object.value;
+
+
+		if (domain != "") {
+			document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=4d63253c-2516-4738-b424-1d5a560b1ae5&domain=" + domain;
+		} else {
+			document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=4d63253c-2516-4738-b424-1d5a560b1ae5";
+		}
+	}
+
+	function handleNoDomain(key, value) {
+
+
+		document.location = "../../commonauth?idp=" + key + "&authenticator=" + value + "&sessionDataKey=4d63253c-2516-4738-b424-1d5a560b1ae5";
+
+	}
+
+	function saveLink() {
+		var url = window.location.href;
+		var date = new Date();
+		var expiryMins = 5;
+		date.setTime(date.getTime() + (expiryMins * 60 * 1000));
+		var expires = "expires=" + date.toUTCString();
+		document.cookie = "loginRequestURL=" + encodeURIComponent(url) + "; path=/; " + expires;
+		return true;
+	}
+
+	function backToPreviousFlow(mode) {
+		if (mode === "login") {
+			backToSignup();
+		} else if (mode === "signup") {
+			backToLogin();
+		}
+	}
+
+	function backToSignup() {
+		var sessionDataKey = qs('sessionDataKey');
+		var commonAuthURL;
+		commonAuthURL = "/commonauth/?sessionDataKey=" + sessionDataKey
+				+ "&action=redirectToSignup&backTriggered=true";
+		window.location = commonAuthURL;
+	}
+
+	function backToLogin() {
+		var sessionDataKey = qs('sessionDataKey');
+		var commonAuthURL;
+		commonAuthURL = "/commonauth/?sessionDataKey=" + sessionDataKey
+				+ "&action=redirectToLogin&backTriggered=true";
+		window.location = commonAuthURL;
+	}
+
+	function qs(key) {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars[key];
+	}
+
+	setCookie("referrer_app", 'qH9pNK62W8XtInwq1i1mvuYUUJEa', 1);
+	setCookie("user_id", 'AVQzEI0MAUCo9g8QeJ6cMw==', 1);
+	setCookie("advertisingId", 'e1a50b92-9503-4584-a7aa-741195b43066', 1);
+
+	function setCookie(cname, cvalue, expirydays) {
+
+    	if (cvalue === null) {
+            cvalue = document.getElementById('msisdn').value;
+        }
+
+        var date = new Date();
+        date.setTime(date.getTime() + (expirydays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + date.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+</script>
+
+
+
+
+
+
+</body></html>
